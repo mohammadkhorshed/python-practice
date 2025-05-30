@@ -5,7 +5,7 @@ I'm **Mohammad Khorshed Alam**, a Civil Engineering graduate transitioning into 
 
 ## 📁 Folder Structure
 
-- `basics/`: Contains Jupyter Notebooks with foundational Python exercises.
+- `fundamentals/`: Contains Jupyter Notebooks with foundational Python exercises.
   - `variables.ipynb`: 25 beginner-to-advanced problems on Python variables.
   - `strings.ipynb`: 25 practice exercises to master Python string manipulation.
   - `if-else.ipynb`: 25 basic-to-advance exercises of Python if-else statement.
