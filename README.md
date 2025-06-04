@@ -9,6 +9,8 @@ I'm **Mohammad Khorshed Alam**, a Civil Engineering graduate transitioning into 
   - `variables.ipynb`: 25 beginner-to-advanced problems on Python variables.
   - `strings.ipynb`: 25 practice exercises to master Python string manipulation.
   - `if-else.ipynb`: 25 basic-to-advance exercises of Python if-else statement.
+  - `loops.ipynb`: 50 easy-to-hard exercises to master `for`, `while`, and `nested loops` in Python.
+  - `list.ipynb`: 30 intermediate-to-advance exercises on Python list.
 
 ## 📌 Purpose
 
@@ -28,7 +30,7 @@ This repository is designed to:
 ## 🚀 What's Next
 
 I'm currently focusing on core Python, and soon I will:
-- Upload practice notebooks on loops, lists, functions, etc.
+- Upload practice notebooks on functions, OOP, libraries etc.
 - Begin building data analysis and machine learning projects
 - Share end-to-end portfolio projects
 
