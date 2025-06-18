@@ -11,6 +11,8 @@ I'm **Mohammad Khorshed Alam**, a Civil Engineering graduate transitioning into 
   - `if-else.ipynb`: 25 basic-to-advance exercises of Python if-else statement.
   - `loops.ipynb`: 50 easy-to-hard exercises to master `for`, `while`, and `nested loops` in Python.
   - `list.ipynb`: 30 intermediate-to-advance exercises on Python list.
+  - `tuples.ipynb`: 20 practice exercises to master Python tuples.
+  - `sets.ipynb`: 25 basic-to-advance exercises of Python sets.
 
 ## 📌 Purpose
 
