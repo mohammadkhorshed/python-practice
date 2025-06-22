@@ -14,6 +14,8 @@ I'm **Mohammad Khorshed Alam**, a Civil Engineering graduate transitioning into 
   - `tuples.ipynb`: 20 practice exercises to master Python tuples.
   - `sets.ipynb`: 25 basic-to-advance exercises of Python sets.
   - `array.ipynb`: 20 easy-to-hard exercises to master Python array.
+  - `zip_unzip.ipynb`: 10 practice exercises of Python Zip and Unzip.
+  - `dictionaries.ipynb`: 25 basic-to-advance exercises of Python dictionaries.
 
 ## 📌 Purpose
 
