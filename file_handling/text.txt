@@ -1,0 +1,6 @@
+The quick brown fox jumps over the lazy dog. 
+The lazy dog barks at the fox, but the fox doesn't care.
+Foxes are clever animals, and dogs are loyal companions.
+Python is a great language for text processing.
+Text processing includes searching, replacing, and manipulating strings.
+Search and replace operations are fundamental in Python.
