@@ -1,0 +1,3 @@
+The quick brown wolf jumps over the lazy dog. 
+The lazy dog barks at the wolf, but the wolf doesn't care.
+The wolf is clever animal, and dog is loyal companion.
