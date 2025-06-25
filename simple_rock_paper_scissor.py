@@ -2,7 +2,7 @@
 
 import random
 options = ['rock', 'paper', 'scissor']
-num_of_pick = int(input("How many times you want to play? "))
+num_of_pick = int(input("How many times do you want to play? "))
 player_won = 0
 computer_won = 0
 
@@ -25,4 +25,4 @@ if player_won > computer_won:
     print('Congratulations! You Win!')
 else:
     print('Bad Luck! You Lose!')
-    print('Better Luck NeXT Time!')
+    print('Better Luck Next Time!')
