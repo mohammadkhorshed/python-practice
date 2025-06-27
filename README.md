@@ -16,6 +16,10 @@ I'm **Mohammad Khorshed Alam**, a Civil Engineering graduate transitioning into 
   - `array.ipynb`: 20 easy-to-hard exercises to master Python array.
   - `zip_unzip.ipynb`: 10 practice exercises of Python Zip and Unzip.
   - `dictionaries.ipynb`: 25 basic-to-advance exercises of Python dictionaries.
+  - `builtin_functions.ipynb`: 40 Python built-in functions to practice.
+  - `continue_break.ipynb`: 10 basic-to-advanced exercises to master Python's `continue` and `break` statements.
+  - `list_manipulation.ipynb`: 10 practice exercises to master on Python list manipulation.
+  - `function_recursion.ipynb`: 5 exercises to enhance understanding of recursion logic and application.
 
 ## 📌 Purpose
 
