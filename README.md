@@ -25,6 +25,7 @@ I'm **Mohammad Khorshed Alam**, a Civil Engineering graduate transitioning into 
   - `search_and_replace.ipynb`: Practical exercises on Python search and replace in a text file.
   - `zip_unzip_file.ipynb`: Practical exercises on zipping and unzipping files using Python.
 - `simple_rock_paper_scissor.py`: A simple simulation of Rock-Paper-Scissor game.
+- `number_guessing_game.py`: Built a Number Guessing Game simulation.
 
 ## 📌 Purpose
 
