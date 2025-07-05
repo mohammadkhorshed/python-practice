@@ -17,9 +17,14 @@ def power(x, y):
 
 def root(x, y):
     if y == 0:
-        return "Error: Cannot root by zero!"
-    return x ** (1 / y)
-
+        return "Error: Cannot use 0 as root index!"
+    if x < 0 and y % 2 == 0:
+        return "Error: Cannot take even root of negative number!"
+    try:
+        return x ** (1 / y)
+    except:
+        return "Error: Invalid root calculation!"
+    
 def percentage(x, y):
     return x * (y / 100)
 
@@ -34,7 +39,7 @@ def calculator():
     print("5. Power(a**b)")
     print("6. Root(y√x)")
     print("7. Percentage(%)")
-    print("6. Exit")
+    print("8. Exit")
 
     while True:
         try:
@@ -50,3 +55,38 @@ def calculator():
 
             num1 = float(input("Please enter first number: "))
             num2 = float(input("Please enter second number: "))
+
+            if choice == '1':
+                result = add(num1, num2)
+                operation = "+"          
+            elif choice == '2':
+                result = subtract(num1, num2)
+                operation = "-"
+            elif choice == '3':
+                result = multiply(num1, num2)
+                operation = "*"
+            elif choice == '4':
+                result = divide(num1, num2)
+                operation = "/"
+            elif choice == '5':
+                result = power(num1, num2)
+                operation = "**"
+            elif choice == '6':
+                result = root(num1, num2)
+                operation = "√"
+            elif choice == '7':
+                result = percentage(num1, num2)
+                operation = "%"
+
+            if isinstance(result, str):
+                print(f"Result: {result}")
+            else:
+                print(f"Result: {num1} {operation} {num2} = {result}")
+            
+        except ValueError:
+            print("Invalid input! Please enter valid number!")
+        except Exception as e:
+            print(f"Error: {e}")
+
+if __name__ == "__main__":
+    calculator()
