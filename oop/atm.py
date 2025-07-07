@@ -44,39 +44,60 @@ class Atm:
     
     def create_pin(self):
         if self.pin == "":
-            self.pin = input("Enter a PIN: ")
-            print("\n✅ PIN setup is successful! 🚫 Don't share it with anyone!")
+            while True:
+                self.pin = input("Enter a PIN: ").strip()
+                if self.pin.isdigit() and len(self.pin) >= 4:   
+                    print("\n✅ PIN setup is successful! 🚫 Don't share it with anyone!")
+                    break
+                else:
+                    print("\n⚠️  Invalid PIN!\n1. Minimum PIN length is 4 digits\n2. Only digits can be used as PIN")
         else:
-            print("\n⚠️ A PIN is already created!")
+            print("\n⚠️  A PIN is already created!")
     
     def check_pin(self):
-        while True:
-            try:
-                inputted_pin = input("\nEnter your PIN: ").strip()
-                if inputted_pin == self.pin:
-                    return True
-                else:
-                    print("\n❌ Wrong PIN! Try again!")
-            except ValueError:
-                print("\nInvalid PIN! Please enter valid PIN!")
+        if self.pin != "":
+            attempt = 3
+            while attempt > 0:
+                try:
+                    inputted_pin = input("\nEnter your PIN: ").strip()
+                    if inputted_pin == self.pin:
+                        return True
+                    else:
+                        attempt -= 1
+                        if attempt == 0:
+                            print("⛔ Contact administration to reset your PIN! ⛔")
+                        else:
+                            print("\n❌ Wrong PIN! Try again!")
+                            print(f"{attempt} Left")
+                except ValueError:
+                    print("\nInvalid PIN! Please enter valid PIN!")
+        else:
+            print("⚠️  PIN is not set yet! Set PIN first!")
     
     def deposit(self):
         temp = self.check_pin()
         if temp:
-            amount = int(input("\nEnter deposit amount: "))
-            self.balance += amount
-            print(f"\n✅ Deposit successful! Your new balance is ${self.balance}")
+            amount_str = input("\nEnter deposit amount: ")
+            if amount_str.isdigit():
+                amount = int(amount_str)
+                self.balance += amount
+                print(f"\n✅ Deposit successful! Your new balance is ${self.balance}")
+            else:
+                print("\n⚠️  Invalid amount! Please enter numbers only!")
     
     def withdraw(self):
         temp = self.check_pin()
         if temp:
-            amount = int(input("\nEnter withdraw amount: "))
-            if amount <= self.balance:
-                self.balance -= amount
-                print(f"\n✅ Cash withdrawal successful! Your new balance is ${self.balance}")
+            amount_str = input("\nEnter withdraw amount: ")
+            if amount_str.isdigit():
+                amount = int(amount_str)
+                if amount <= self.balance:
+                    self.balance -= amount
+                    print(f"\n✅ Cash withdrawal successful! Your new balance is ${self.balance}")
+                else:
+                    print("\n⚠️  Insufficient balance!")
             else:
-                print("\n⚠️ Insufficient balance!")
-    
+                print("\n⚠️  Invalid amount! Please enter numbers only!")
     def check_balance(self):
         temp = self.check_pin()
         if temp:
@@ -85,8 +106,9 @@ class Atm:
     def change_pin(self):
         temp = self.check_pin()
         if temp:
-            self.pin = input("\nEnter you new PIN: ")
+            self.pin = input("\nEnter your new PIN: ")
             print("\n✅ New PIN setup is successful! 🚫 Don't share it with anyone!")
 
 
 my_atm = Atm()
+my_atm.menu()
