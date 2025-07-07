@@ -38,6 +38,36 @@ class Fraction:
         temp_den = self.den * other.num
         gcd = self.find_gcd(temp_num, temp_den)
         return Fraction(int(temp_num / gcd), int(temp_den / gcd))
+    
+    def __eq__(self, other):
+        num1 = self.num / self.den
+        num2 = other.num / other.den
+        return True if num1 == num2 else False
+    
+    def __ne__(self, other):
+        num1 = self.num / self.den
+        num2 = other.num / other.den
+        return True if num1 != num2 else False
+    
+    def __lt__(self, other):
+        num1 = self.num / self.den
+        num2 = other.num / other.den
+        return True if num1 < num2 else False
+    
+    def __gt__(self, other):
+        num1 = self.num / self.den
+        num2 = other.num / other.den
+        return True if num1 > num2 else False
+    
+    def __le__(self, other):
+        num1 = self.num / self.den
+        num2 = other.num / other.den
+        return True if num1 <= num2 else False
+    
+    def __ge__(self, other):
+        num1 = self.num / self.den
+        num2 = other.num / other.den
+        return True if num1 >= num2 else False
 
 
 # Creating new objects and performing operations to check its working
@@ -50,3 +80,10 @@ if __name__ == "__main__":
     print(x - y)
     print(x * y)
     print(x / y)
+    print(x == y)
+    print(x != y)
+    print(x < y)
+    print(x > y)
+    print(x <= y)
+    print(x >= y)
+
