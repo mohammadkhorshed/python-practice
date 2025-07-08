@@ -9,13 +9,17 @@ class Fraction:
         self.num = int(n / gcd)
         self.den = int(d / gcd)
     
+    def __repr__(self):
+        return f"Fraction({self.num}, {self.den})"
+
     def __str__(self):
         return f"{self.num}" if self.den == 1 else f"{self.num}/{self.den}"
     
-    def find_gcd(self, n, d):
+    @staticmethod
+    def find_gcd(n, d):
         """Finds the Greatest Common Divisor (GCD) of numerator and denominator."""
 
-        return abs(n) if d == 0 else self.find_gcd(d, n % d)
+        return abs(n) if d == 0 else Fraction.find_gcd(d, n % d)
     
     def float_to_fraction(self, other: float):
         """Converts a float to a Fraction by removing the decimal and simplifying."""
@@ -27,8 +31,11 @@ class Fraction:
             decimal_places = 0
         other_num = other * (10 ** decimal_places)
         other_den = 10 ** decimal_places
-        gcd = self.find_gcd(other_num, other_den)
+        gcd = Fraction.find_gcd(other_num, other_den)
         return Fraction(int(other_num / gcd), int(other_den / gcd))
+    
+    def to_float(self):
+        return self.num / self.den
 
     def __add__(self, other):
         """Adds a Fraction to another Fraction, float, or int."""
@@ -45,8 +52,11 @@ class Fraction:
             temp_den = self.den
         else:
             raise TypeError("Unsupported type for operation with Fraction")
-        gcd = self.find_gcd(temp_num, temp_den)
+        gcd = Fraction.find_gcd(temp_num, temp_den)
         return Fraction(int(temp_num / gcd), int(temp_den / gcd))
+    
+    def __radd__(self, other):
+        return self + other
     
     def __sub__(self, other):
         """Subtracts a Fraction float, or int from another Fraction"""
@@ -61,8 +71,11 @@ class Fraction:
         elif isinstance(other, int):
             temp_num = self.num - other * self.den
             temp_den = self.den
-        gcd = self.find_gcd(temp_num, temp_den)
+        gcd = Fraction.find_gcd(temp_num, temp_den)
         return Fraction(int(temp_num / gcd), int(temp_den / gcd))
+    
+    def __rsub__(self, other):
+        return Fraction(other) - self
     
     def __mul__(self, other):
         """Multiplies a Fraction with another Fraction, float, or int."""
@@ -77,8 +90,11 @@ class Fraction:
         elif isinstance(other, int):
             temp_num = self.num * other
             temp_den = self.den             
-        gcd = self.find_gcd(temp_num, temp_den)
+        gcd = Fraction.find_gcd(temp_num, temp_den)
         return Fraction(int(temp_num / gcd), int(temp_den / gcd))
+    
+    def __rmul__(self, other):
+        return self * other
     
     def __truediv__(self, other):
         """Divides a Fraction by another Fraction, float or int."""
@@ -93,8 +109,11 @@ class Fraction:
         elif isinstance(other, int):
             temp_num = self.num
             temp_den = self.den * other
-        gcd = self.find_gcd(temp_num, temp_den)
+        gcd = Fraction.find_gcd(temp_num, temp_den)
         return Fraction(int(temp_num / gcd), int(temp_den / gcd))
+    
+    def __rtruediv__(self, other):
+        return Fraction(other) / self
     
     def __eq__(self, other):
         """Checks equality of a Fraction and another Fraction, float or int."""
@@ -180,3 +199,6 @@ if __name__ == "__main__":
     print(x + 2.1)
     print(x - 1)
     print (x - 2.1)
+    print(1 + x)
+    print(1 - x)
+    print(0.5 / y)
