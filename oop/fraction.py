@@ -174,6 +174,23 @@ class Fraction:
             return self.num >= self.den * other
         else:
             raise TypeError("Unsupported type for operation with Fraction")
+    
+    def __pow__(self, other):
+        if isinstance(other, int):
+            temp_num = self.num ** other
+            temp_den = self.den ** other
+            gcd = Fraction.find_gcd(temp_num, temp_den)
+            return f"{int(temp_num / gcd)}/{int(temp_den / gcd)}"
+        elif isinstance(other, float):
+            return (self.num / self.den) ** other
+        elif isinstance(other, Fraction):
+            return (self.num / self.den) ** other.to_float()
+        else:
+            raise TypeError("Unsupported type for operation with Fraction")
+    
+    def sqrt(self):
+        return (self.num  / self.den) ** 0.5
+
 
 
 # Create Fraction objects and demonstrate arithmetic and comparison operations
@@ -202,3 +219,7 @@ if __name__ == "__main__":
     print(1 + x)
     print(1 - x)
     print(0.5 / y)
+    print(y ** 2)
+    print(x ** 1.5)
+    print(Fraction.to_float(x))
+    print(x.sqrt())
