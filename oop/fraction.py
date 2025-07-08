@@ -50,6 +50,7 @@ class Fraction:
     
     def __sub__(self, other):
         """Subtracts a Fraction float, or int from another Fraction"""
+
         if isinstance(other, Fraction):
             temp_num = self.num * other.den - other.num * self.den
             temp_den = self.den * other.den
@@ -65,6 +66,7 @@ class Fraction:
     
     def __mul__(self, other):
         """Multiplies a Fraction with another Fraction, float, or int."""
+
         if isinstance(other, Fraction):
             temp_num = self.num * other.num
             temp_den = self.den * other.den
@@ -80,6 +82,7 @@ class Fraction:
     
     def __truediv__(self, other):
         """Divides a Fraction by another Fraction, float or int."""
+
         if isinstance(other, Fraction):
             temp_num = self.num * other.den
             temp_den = self.den * other.num
@@ -94,34 +97,64 @@ class Fraction:
         return Fraction(int(temp_num / gcd), int(temp_den / gcd))
     
     def __eq__(self, other):
-        num1 = self.num / self.den
-        num2 = other.num / other.den
-        return True if num1 == num2 else False
+        """Checks equality of a Fraction and another Fraction, float or int."""
+
+        if isinstance(other, Fraction):
+            return self.num * other.den == self.den * other.num
+        elif isinstance(other, float) or isinstance(other, int):
+            return self.num == self.den * other
+        else:
+            raise TypeError("Unsupported type for operation with Fraction")
     
     def __ne__(self, other):
-        num1 = self.num / self.den
-        num2 = other.num / other.den
-        return True if num1 != num2 else False
+        """Checks inequality of a Fraction and another Fraction, float or int."""
+
+        if isinstance(other, Fraction):
+            return self.num * other.den != self.den * other.num
+        elif isinstance(other, float) or isinstance(other, int):
+            return self.num != self.den * other
+        else:
+            raise TypeError("Unsupported type for operation with Fraction")
     
     def __lt__(self, other):
-        num1 = self.num / self.den
-        num2 = other.num / other.den
-        return True if num1 < num2 else False
+        """Does less-than comparison between a Fraction and another Fraction, float or int."""
+
+        if isinstance(other, Fraction):
+            return self.num * other.den < self.den * other.num
+        elif isinstance(other, float) or isinstance(other, int):
+            return self.num < self.den * other
+        else:
+            raise TypeError("Unsupported type for operation with Fraction")
     
     def __gt__(self, other):
-        num1 = self.num / self.den
-        num2 = other.num / other.den
-        return True if num1 > num2 else False
+        """Does greater-than comparison between a Fraction and another Fraction, float or int."""
+
+        if isinstance(other, Fraction):
+            return self.num * other.den > self.den * other.num
+        elif isinstance(other, float) or isinstance(other, int):
+            return self.num > self.den * other
+        else:
+            raise TypeError("Unsupported type for operation with Fraction")
     
     def __le__(self, other):
-        num1 = self.num / self.den
-        num2 = other.num / other.den
-        return True if num1 <= num2 else False
+        """Does less-than comparison between a Fraction and another Fraction, float or int."""
+
+        if isinstance(other, Fraction):
+            return self.num * other.den <= self.den * other.num
+        elif isinstance(other, float) or isinstance(other, int):
+            return self.num <= self.den * other
+        else:
+            raise TypeError("Unsupported type for operation with Fraction")
     
     def __ge__(self, other):
-        num1 = self.num / self.den
-        num2 = other.num / other.den
-        return True if num1 >= num2 else False
+        """Does greater-than comparison between a Fraction and another Fraction, float or int."""
+
+        if isinstance(other, Fraction):
+            return self.num * other.den >= self.den * other.num
+        elif isinstance(other, float) or isinstance(other, int):
+            return self.num >= self.den * other
+        else:
+            raise TypeError("Unsupported type for operation with Fraction")
 
 
 # Create Fraction objects and demonstrate arithmetic and comparison operations
