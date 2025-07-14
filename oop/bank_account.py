@@ -9,12 +9,16 @@ class BankAccount:
         self.account_holder = input("Enter your full name: ")
         self.address = Address()
         while True:
-            self.__pin = input("Enter new PIN: ").strip()
-            if self.__pin.isdigit() and len(self.__pin) >= 4:
-                print("\nPIN setup is successful!")
-                break
-            else:
-                print("\nInvalid PIN!\n1. Minimum length is 4\n2. Only use 0-9 as PIN")
+                input_pin = input("Enter new PIN: ").strip()
+                if input_pin.isdigit() and len(input_pin) >= 4:
+                    self.__pin = input_pin
+                    print("PIN setup is successful!")
+                    break
+                else:
+                    print("\nInvalid PIN!\n1. Minimum length is 4\n2. Only use 0-9 as PIN")
+        print("\nAccount successfully created!")
+        print(f"\nName: {self.account_holder}")
+        self.address.print_address()
         
     def check_pin(self):
         if self.__pin:
@@ -51,7 +55,7 @@ class BankAccount:
             amount_str = input("Enter withdraw amount: ").strip()
             if amount_str.isdigit():
                 amount = int(amount_str)
-                if amount <= self.__balance():
+                if amount <= self.__balance:
                     self.__balance -= amount
                     print(f"\nWithdraw successful! Your new balance is {self.__balance}")
                 else:
@@ -62,9 +66,49 @@ class BankAccount:
     def display_balance(self):
         if self.check_pin():
             print(f"Your balance is {self.__balance}")
+    
+    def change_pin(self):
+        if self.check_pin():
+            while True:
+                input_pin = input("Enter new PIN: ").strip()
+                if input_pin.isdigit() and len(input_pin) >= 4:
+                    self.__pin = input_pin
+                    print("\nPIN setup is successful!")
+                    break
+                else:
+                    print("\nInvalid PIN!\n1. Minimum length is 4\n2. Only use 0-9 as PIN")
+
+    def change_address(self):
+        if self.check_pin():
+            self.address.add_address()
+            
+
 
 
 
 class Address:
     def __init__(self):
-        pass
+        self.postal_code = ""
+        self.city = ""
+        self.division = ""
+        self.add_address()
+    
+    def __str__(self):
+        return f"Postal code: {self.postal_code}\nCity: {self.city}\nDivision: {self.division}"
+    
+    def add_address(self):
+        while True:
+            input_postal_code = input("Enter your postal code: ")
+            if input_postal_code.isdigit():
+                self.postal_code = input_postal_code
+                break
+            else:
+                print("\nInvalid postal code! Use only numbers!")
+        self.city = input("Enter your city name: ")
+        self.division = input("Enter your division name: ")
+    
+    def print_address(self):
+        print(f"Postal code: {self.postal_code}")
+        print(f"City: {self.city}")
+        print(f"Division: {self.division}")
+    
