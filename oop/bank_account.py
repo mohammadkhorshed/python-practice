@@ -4,6 +4,7 @@ class BankAccount:
         self.address = ""
         self.__pin = ""
         self.__balance = 0
+        self.transactions = []
     
     def create_account(self):
         self.account_holder = input("Enter your full name: ")
@@ -46,6 +47,7 @@ class BankAccount:
             if amount_str.isdigit():
                 amount = int(amount_str)
                 self.__balance += amount
+                self.transactions.append(f"Deposit: {amount}")
                 print(f"\nDeposit successful! Your new balance is {self.__balance}")
             else:
                 print("Invalid amount! Please enter only numbers!")
@@ -57,6 +59,7 @@ class BankAccount:
                 amount = int(amount_str)
                 if amount <= self.__balance:
                     self.__balance -= amount
+                    self.transactions.append(f"Withdraw: {amount}")
                     print(f"\nWithdraw successful! Your new balance is {self.__balance}")
                 else:
                     print("Insufficient balance!")
