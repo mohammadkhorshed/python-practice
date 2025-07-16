@@ -84,6 +84,14 @@ class BankAccount:
     def change_address(self):
         if self.check_pin():
             self.address.add_address()
+    
+    def show_transactions(self):
+        if self.transactions:
+            print("Transaction history: ")
+            for idx, item in enumerate(self.transactions):
+                print(f"{idx + 1}. {item}")
+        else:
+            print("There is not transaction history!")
             
 
 
