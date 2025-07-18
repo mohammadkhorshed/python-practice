@@ -16,6 +16,7 @@ class Library:
                 else:
                     print(f"{book.title} is not available!")
                     return
+        raise BookNotFoundException(f"Book with the title '{title} is not found in the library!'")
 
     def return_book(self, title):
         for book in self.books:
@@ -27,6 +28,7 @@ class Library:
                 else:
                     print(f"{book.title} wasn't borrowed!")
                     return
+        raise BookNotFoundException(f"Book with the title '{title} is not found in the library!'")
 
     def display_available_books(self):
         available_books = [book for book in self.books if book.is_available == True]
@@ -47,3 +49,6 @@ class Book:
     
     def __repr__(self):
         return f"Book(title = '{self.title}', author = '{self.author}', available = {self.is_available})"
+
+class BookNotFoundException(Exception):
+    pass
