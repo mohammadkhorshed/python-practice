@@ -16,26 +16,36 @@ class Library:
                 else:
                     print(f"{book.title} is not available!")
                     return
-        raise BookNotFoundException(f"Book with the title '{title} is not found in the library!'")
+        raise BookNotFoundException(f"Book with the title '{title}' is not found in the library!")
 
     def return_book(self, title):
         for book in self.books:
             if book.title.lower() == title.lower():
                 if not book.is_available:
                     book.is_available = True
-                    print(f"Thank you for returning {book.self}")
+                    print(f"Thank you for returning {book.title}")
                     return
                 else:
                     print(f"{book.title} wasn't borrowed!")
                     return
-        raise BookNotFoundException(f"Book with the title '{title} is not found in the library!'")
+        raise BookNotFoundException(f"Book with the title '{title}' is not found in the library!")
 
     def display_available_books(self):
         available_books = [book for book in self.books if book.is_available == True]
         if not available_books:
             print("No book is available in the library!")
+            return
         print("Available books: ")
         for idx, book in enumerate(available_books):
+            print(f"{idx + 1}. {book}")
+    
+    def find_book_by_author(self, author):
+        book_list = [book for book in self.books if book.author.lower() == author.lower()]
+        if not book_list:
+            print(f"No book by {author.title()} is available in the library!")
+            return
+        print(f"Book(s) by {author.title()}: ")
+        for idx, book in enumerate(book_list):
             print(f"{idx + 1}. {book}")
 
 class Book:
