@@ -1,18 +1,40 @@
 class Library:
     def __init__(self):
-        pass
+        self.books = []
 
-    def add_book(self):
-        pass
+    def add_book(self, book):
+        self.books.append(book)
+        print(f"Added book: {book}")
 
-    def borrow_book(self):
-        pass
+    def borrow_book(self, title):
+        for book in self.books:
+            if book.title.lower() == title.lower():
+                if book.is_available:
+                    book.is_available = False
+                    print(f"You have borrowed {book.title}")
+                    return
+                else:
+                    print(f"{book.title} is not available!")
+                    return
 
-    def return_book(self):
-        pass
+    def return_book(self, title):
+        for book in self.books:
+            if book.title.lower() == title.lower():
+                if not book.is_available:
+                    book.is_available = True
+                    print(f"Thank you for returning {book.self}")
+                    return
+                else:
+                    print(f"{book.title} wasn't borrowed!")
+                    return
 
     def display_available_books(self):
-        pass
+        available_books = [book for book in self.books if book.is_available == True]
+        if not available_books:
+            print("No book is available in the library!")
+        print("Available books: ")
+        for idx, book in enumerate(available_books):
+            print(f"{idx + 1}. {book}")
 
 class Book:
     def __init__(self, title, author):
