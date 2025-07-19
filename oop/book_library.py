@@ -47,18 +47,38 @@ class Library:
         print(f"Book(s) by {author.title()}: ")
         for idx, book in enumerate(book_list):
             print(f"{idx + 1}. {book}")
+    
+    def find_book_by_year(self, year):
+        book_list = [book for book in self.books if book.year == year]
+        if not book_list:
+            print(f"No book 'published in {year}' is available in the library!")
+            return
+        print(f"Book(s) published in {year}: ")
+        for idx, book in enumerate(book_list):
+            print(f"{idx + 1}. {book}")
+    
+    def find_book_by_genre(self, genre):
+        book_list = [book for book in self.books if book.genre.lower() == genre.lower()]
+        if not book_list:
+            print(f"No book of {genre} genre, is available in the library!")
+            return
+        print(f"Book(s) of {genre} genre: ")
+        for idx, book in enumerate(book_list):
+            print(f"{idx + 1}. {book}")
 
 class Book:
-    def __init__(self, title, author):
+    def __init__(self, title, author, year, genre):
         self.title = title
         self.author = author
+        self.year = year
+        self.genre = genre
         self.is_available = True
     
     def __str__(self):
-        return f"{self.title} by {self.author} - {'Available' if self.is_available else 'Not available'}"
+        return f"{self.title} [{self.genre}] by {self.author} published in {self.year} - {'Available' if self.is_available else 'Not available'}"
     
     def __repr__(self):
-        return f"Book(title = '{self.title}', author = '{self.author}', available = {self.is_available})"
+        return f"Book(title = '{self.title}', author = '{self.author}', year = {self.year}, genre = {self.genre}, available = {self.is_available})"
 
 class BookNotFoundException(Exception):
     pass
