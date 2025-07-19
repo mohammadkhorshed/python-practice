@@ -82,3 +82,48 @@ class Book:
 
 class BookNotFoundException(Exception):
     pass
+
+
+
+if __name__ == "__main__":
+
+    my_library = Library()
+
+    # Create books
+    book_1 = Book("The Hobbit", "J.R.R. Tolkien", 1937, "Fantasy")
+    book_2 = Book("1984", "George Orwell", 1949, "Dystopian")
+    book_3 = Book("Harry Potter and the Sorcerer's Stone", "J.K. Rowling", 1997, "Fantasy")
+    book_4 = Book("The Alchemist", "Paulo Coelho", 1988, "Philosophy")
+    book_5 = Book("Frankenstein", "Mary Shelley", 1818, "Science Fiction")
+    book_6 = Book("Animal Farm", "George Orwell", 1945, "Dystopian")
+    book_7 = Book("A Game of Thrones", "George R.R. Martin", 1996, "Fantasy")
+
+    # Add books
+    my_library.add_book(book_1)
+    my_library.add_book(book_2)
+    my_library.add_book(book_3)
+    my_library.add_book(book_4)
+    my_library.add_book(book_5)
+    my_library.add_book(book_6)
+    my_library.add_book(book_7)
+
+    # Display available books
+    my_library.display_available_books()
+
+    # Borrow book
+    my_library.borrow_book("1984")
+
+    # Again display available books
+    my_library.display_available_books()
+
+    # Find book by author
+    my_library.find_book_by_author("George Orwell")
+    
+    # Find book by year
+    my_library.find_book_by_year(1988)
+
+    # Find book by genre
+    my_library.find_book_by_genre("Fantasy")
+
+    # Return book
+    my_library.return_book("1984")
