@@ -83,6 +83,25 @@ class Book:
 class BookNotFoundException(Exception):
     pass
 
+class User:
+    def  __init__(self, name):
+        self.name = name
+        self.borrowed_books = []
+    
+    def borrow_book(self, book):
+        self.borrowed_books.append(book)
+    
+    def return_book(self, book):
+        self.borrowed_books.remove(book)
+    
+    def display_borrowed_books(self):
+        if not self.borrowed_books:
+            print(f"{self.name} has not borrowed any book.")
+        else:
+            print(f"{self.name} has borrowed the following books:")
+            for idx, book in enumerate(self.borrowed_books):
+                print(f"{idx + 1}. {book}")
+
 
 
 if __name__ == "__main__":
