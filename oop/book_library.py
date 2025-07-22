@@ -76,6 +76,13 @@ class Library:
         print(f"Book(s) of {genre} genre: ")
         for idx, book in enumerate(book_list):
             print(f"{idx + 1}. {book}")
+    
+    def show_user_history(self, user_name):
+        user = self.users.get(user_name)
+        if not user:
+            print(f"No history found for user {user_name}")
+        else:
+            user.display_borrowed_books()
 
 class Book:
     def __init__(self, title, author, year, genre):
@@ -155,5 +162,11 @@ if __name__ == "__main__": # To test the codes
     # Find book by genre
     my_library.find_book_by_genre("Fantasy")
 
+    # Show user history
+    my_library.show_user_history("mohammad")
+
     # Return book
     my_library.return_book("1984", "mohammad")
+
+    # Again show user history
+    my_library.show_user_history("mohammad")
