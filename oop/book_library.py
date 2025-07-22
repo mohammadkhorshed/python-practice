@@ -1,29 +1,40 @@
 class Library:
     def __init__(self):
         self.books = []
+        self.users = {}
 
     def add_book(self, book):
         self.books.append(book)
         print(f"Added book: {book}")
 
-    def borrow_book(self, title):
+    def borrow_book(self, title, user_name):
         for book in self.books:
             if book.title.lower() == title.lower():
                 if book.is_available:
                     book.is_available = False
-                    print(f"You have borrowed {book.title}")
+                    user = self.users.get(user_name)
+                    if not user:
+                        user = User(user_name)
+                        self.users[user_name] = user
+                    user.borrow_book(book)
+                    print(f"{user_name} borrowed {book.title}")
                     return
                 else:
                     print(f"{book.title} is not available!")
                     return
         raise BookNotFoundException(f"Book with the title '{title}' is not found in the library!")
 
-    def return_book(self, title):
+    def return_book(self, title, user_name):
+        user = self.users.get(user_name)
         for book in self.books:
             if book.title.lower() == title.lower():
                 if not book.is_available:
                     book.is_available = True
-                    print(f"Thank you for returning {book.title}")
+                    if book in user.borrowed_books:
+                        user.return_book(book)
+                        print(f"{user_name} returned {book.title}")
+                    else:
+                        print(f"{user_name} didn't borrow {book.title}")
                     return
                 else:
                     print(f"{book.title} wasn't borrowed!")
@@ -104,7 +115,7 @@ class User:
 
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # To test the codes
 
     my_library = Library()
 
@@ -130,7 +141,7 @@ if __name__ == "__main__":
     my_library.display_available_books()
 
     # Borrow book
-    my_library.borrow_book("1984")
+    my_library.borrow_book("1984", "mohammad")
 
     # Again display available books
     my_library.display_available_books()
@@ -145,4 +156,4 @@ if __name__ == "__main__":
     my_library.find_book_by_genre("Fantasy")
 
     # Return book
-    my_library.return_book("1984")
+    my_library.return_book("1984", "mohammad")
