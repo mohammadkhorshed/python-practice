@@ -21,6 +21,12 @@ I'm **Mohammad Khorshed Alam**, a Civil Engineering graduate transitioning into 
   - `list_manipulation.ipynb`: 10 practice exercises to master on Python list manipulation.
   - `function_recursion.ipynb`: 5 exercises to enhance understanding of recursion logic and application.
   - `lambda_function.ipynb`: 10 exercises on Python's lambda functions.
+- `oop/`: Contains python files with mini-projects on Object-Oriented Programming.
+  - `fraction.py`: Custom python data type `fraction` was created.
+  - `atm.py`: Built a simple ATM machine simulation using OOP.
+  - `bank_account.py`: Similarly create a BankAccount class which has a relation with Address class.
+  - `student_record.py`: Built a student record system using OOP concept.
+  - `book_library.py`: Created a book library management system with Library, Book and User classes.
 - `file_handling/`: Contains Jupyter Notebooks with file handling Python exercises.
   - `search_and_replace.ipynb`: Practical exercises on Python search and replace in a text file.
   - `zip_unzip_file.ipynb`: Practical exercises on zipping and unzipping files using Python.
