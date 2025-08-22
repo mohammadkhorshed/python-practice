@@ -27,6 +27,9 @@ I'm **Mohammad Khorshed Alam**, a Civil Engineering graduate transitioning into 
   - `bank_account.py`: Similarly create a BankAccount class which has a relation with Address class.
   - `student_record.py`: Built a student record system using OOP concept.
   - `book_library.py`: Created a book library management system with Library, Book and User classes.
+- `pandas`: Contains Jupyter Notebooks with excercises of Pandas Library.
+- `numpy`: Contains Jupyter Notebooks with excercises of Numpy Library.
+- `seaborn`: Contains Jupyter Notebooks with excercises of Seaborn Library.
 - `file_handling/`: Contains Jupyter Notebooks with file handling Python exercises.
   - `search_and_replace.ipynb`: Practical exercises on Python search and replace in a text file.
   - `zip_unzip_file.ipynb`: Practical exercises on zipping and unzipping files using Python.
